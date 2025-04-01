@@ -10,14 +10,14 @@ const server = http.createServer(app);
 
 // ✅ Correctly apply CORS middleware
 app.use(cors({
-  origin: "https://67ebe7deaf3550207dd670a1--dapper-croquembouche-947cbd.netlify.app", // ❌ Removed trailing slash
+  origin: "https://dapper-croquembouche-947cbd.netlify.app", // ❌ Removed trailing slash
   methods: ["GET", "POST"]
 }));
 
 // ✅ Apply CORS to Socket.io as well
 const io = socketIo(server, {
   cors: {
-    origin: "https://67ebe7deaf3550207dd670a1--dapper-croquembouche-947cbd.netlify.app", // ❌ Removed trailing slash
+    origin: "https://dapper-croquembouche-947cbd.netlify.app", // ❌ Removed trailing slash
     methods: ["GET", "POST"]
   }
 });
