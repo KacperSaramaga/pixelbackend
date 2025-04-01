@@ -1,4 +1,10 @@
 // server.js - Node.js server using Express and Socket.io
+const cors = require("cors");
+app.use(cors({
+  origin: "https://67ebe7deaf3550207dd670a1--dapper-croquembouche-947cbd.netlify.app/",
+  methods: ["GET", "POST"]
+}));
+
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
@@ -7,6 +13,13 @@ const path = require('path');
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
+
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "https://67ebe7deaf3550207dd670a1--dapper-croquembouche-947cbd.netlify.app/", // Replace with your actual Netlify URL
+    methods: ["GET", "POST"]
+  }
+});
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
